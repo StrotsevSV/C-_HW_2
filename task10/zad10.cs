@@ -4,21 +4,23 @@
 // 782 -> 8
 // 918 -> 1
 
-void Second_Digit(int a)
+using System;
+
+class Program
 {
-    if (a.ToString().Length == 3)
+    static void Main(string[] args)
     {
-        a = a % 100 / 10;
-        Console.WriteLine("Вторая цифра числа:" + " " + a);
-    }
-    else 
-    {
-        Console.WriteLine("Число не трёхзначное");
+        Console.Write("Введите трёхзначное число: ");
+        string input = Console.ReadLine();
+
+        if (int.TryParse(input, out int number) && number >= 100 && number <= 999)
+        {
+            int secondDigit = (number / 10) % 10;
+            Console.WriteLine("Вторая цифра числа: " + secondDigit);
+        }
+        else
+        {
+            Console.WriteLine("Ошибка: неверно введено трёхзначное число.");
+        }
     }
 }
-
-
-Console.WriteLine("Введите число: "); // ввод числа пользователя
-int number = int.Parse(Console.ReadLine()); // считать данные пользователя
-Second_Digit(number);
-Second_Digit(102);

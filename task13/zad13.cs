@@ -3,6 +3,34 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-int число = 123456;
-int третьяЦифра = НайтиТретьюЦифру(число);
-Console.WriteLine($"Третья цифра числа {число} равна {третьяЦифра}.");
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Введите трехзначное число: ");
+        string input = Console.ReadLine();
+
+        char thirdDigit = ThirdDigit(input);
+
+        if (thirdDigit != '\0')
+        {
+            Console.WriteLine("Третья цифра: " + thirdDigit);
+        }
+        else
+        {
+            Console.WriteLine("Третьей цифры нет.");
+        }
+    }
+
+    static char ThirdDigit(string number)
+    {
+        if (number.Length == 3)
+        {
+            return number[2];
+        }
+        else
+        {
+            return '\0';
+        }
+    }
+}
